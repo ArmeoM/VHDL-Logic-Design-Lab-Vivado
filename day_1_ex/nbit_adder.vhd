@@ -6,8 +6,8 @@ generic (
 N	: integer := 4
 ); 
 port (
-a_i		: in std_logic_vector (N-1 downto 0);
-b_i		: in std_logic_vector (N-1 downto 0);
+in1		: in std_logic_vector (N-1 downto 0);
+in2		: in std_logic_vector (N-1 downto 0);
 carry_i	: in std_logic;
 sum_o	: out std_logic_vector (N-1 downto 0);
 carry_o	: out std_logic
@@ -37,8 +37,8 @@ carry_o	<= temp(N);
 FULL_ADDER_GEN: for k in 0 to N-1 generate
 	full_adder_k : full_adder
 	port map( 
-	a_i 	=> a_i(k),
-	b_i 	=> b_i(k),
+	a_i 	=> in1(k),
+	b_i 	=> in2(k),
 	carry_i => temp(k),
 	sum_o 	=> sum_o(k),
 	carry_o => temp(k+1)
